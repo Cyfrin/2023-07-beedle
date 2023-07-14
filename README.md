@@ -8,6 +8,8 @@ Before diving into the codebase and this implementation of the Blend lending pro
 
 `forge install OpenZeppelin/openzeppelin-contracts`
 
+`forge install vectorized/solady`
+
 `forge build`
 
 # test
