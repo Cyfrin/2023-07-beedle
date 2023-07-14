@@ -8,7 +8,7 @@ import {ERC20Votes} from "openzeppelin-contracts/contracts/token/ERC20/extension
 
 contract Beedle is Ownable, ERC20, ERC20Permit, ERC20Votes {
 
-    constructor() ERC20("Beedle", "BEEDLE") ERC20Permit("Beedle") Ownable(msg.sender) {
+    constructor() ERC20("Beedle", "BDL") ERC20Permit("Beedle") Ownable(msg.sender) {
         _mint(msg.sender, 1_000_000_000 * 1e18);
     }
 
