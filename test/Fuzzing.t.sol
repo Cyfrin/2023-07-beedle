@@ -166,8 +166,10 @@ contract LenderTest is Test {
 
         uint256 debt = lender.getLoanDebt(0);
         uint256 interest = ((p.interestRate * b.debt * loanLength) / 10000 / 365 days);
-        uint256 f = ((lender.fee() * b.debt * loanLength) / 10000 / 365 days);
+        uint256 f = (lender.lenderFee() * interest) / 10000;
+        interest -= f;
 
+        loanToken.mint(address(borrower), 5*10**17);
         uint256[] memory loanIds = new uint256[](1);
         loanIds[0] = 0;
         lender.repay(loanIds);
@@ -231,7 +233,7 @@ contract LenderTest is Test {
             interestRate: 1000,
             outstandingLoans: 0
         });
-        lender.setPool(p2);
+        bytes32 p2ID = lender.setPool(p2);
 
         vm.warp(block.timestamp + timeToBuy);
 
@@ -239,12 +241,12 @@ contract LenderTest is Test {
 
         if (timeToBuy > 1 days) {
             vm.expectRevert(AuctionEnded.selector);
-            lender.buyLoan(0, p2.interestRate);
+            lender.buyLoan(0, p2ID);
         } else if (maxInterest < p2.interestRate) {
             vm.expectRevert(RateTooHigh.selector);
-            lender.buyLoan(0, p2.interestRate);
+            lender.buyLoan(0, p2ID);
         } else {
-            lender.buyLoan(0, p2.interestRate);
+            lender.buyLoan(0, p2ID);
         }
     }
 
