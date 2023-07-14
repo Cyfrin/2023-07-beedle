@@ -12,6 +12,7 @@ contract Fees {
     address public immutable WETH;
     address public immutable staking;
 
+    /// uniswap v3 router
     ISwapRouter public constant swapRouter =
         ISwapRouter(0xE592427A0AEce92De3Edee1F18E0157C05861564);
 
@@ -21,6 +22,7 @@ contract Fees {
     }
 
     /// @notice swap loan tokens for collateral tokens from liquidations
+    /// @param _profits the token to swap for WETH
     function sellProfits(address _profits) public {
         require(_profits != WETH, "not allowed");
         uint256 amount = IERC20(_profits).balanceOf(address(this));
