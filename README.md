@@ -1,3 +1,36 @@
+# CodeHawks Beedle Contest - Competition Details
+
+- Total Prize Pool: $20,000
+  - HM Awards: $18,000
+  - LQAG: $2,000
+- Starts: July 24th, 2023
+- Ends August 7th, 2023
+- nSLOC: ~706
+- Complexity: ~381
+- Judging Ends August 14th, 2023
+
+# In Scope
+
+All contracts in `src` are in scope. 
+
+```
+src/
+├── Beedle.sol
+├── Fees.sol
+├── Lender.sol
+├── Staking.sol
+├── interfaces
+│   ├── IERC20.sol
+│   └── ISwapRouter.sol
+└── utils
+    ├── Errors.sol
+    ├── Ownable.sol
+    └── Structs.sol
+```
+
+# About Beedle
+- [Twitter](https://twitter.com/beedlefi)
+
 # Beedle
 Oracle free peer to peer perpetual lending
 
