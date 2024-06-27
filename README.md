@@ -1,15 +1,28 @@
-# CodeHawks Beedle Contest - Competition Details
+# Beedle
+
+[//]: # (contest-details-open)
+
+## Contest Details
+
+Oracle free peer to peer perpetual lending
+About Beedle - [Twitter](https://twitter.com/beedlefi)
 
 - Total Prize Pool: $20,000
   - HM Awards: $18,000
   - LQAG: $2,000
+
 - Starts: July 24th, 2023
 - Ends August 7th, 2023
+
 - nSLOC: ~706
 - Complexity: ~381
 - Judging Ends August 14th, 2023
 
-# In Scope
+[//]: # (contest-details-close)
+
+[//]: # (scope-open)
+
+## Scope
 
 All contracts in `src` are in scope. 
 
@@ -28,34 +41,9 @@ src/
     └── Structs.sol
 ```
 
-# About Beedle
-- [Twitter](https://twitter.com/beedlefi)
+## Contract Overview
 
-# Beedle
-Oracle free peer to peer perpetual lending
-
-Before diving into the codebase and this implementation of the Blend lending protocol, it is recommended that you read the [original paper by Paradigm and Blur](https://www.paradigm.xyz/2023/05/blend#continuous-loans)
-
-# build
-`forge init`
-
-`forge install OpenZeppelin/openzeppelin-contracts`
-
-`forge install vectorized/solady`
-
-`forge build`
-
-# test
-`forge test`
-
-# deploy
-first copy the `.example.env` file and create your own `.env` file
-
-`forge script script/LenderScript.s.sol:LenderScript --rpc-url $GOERLI_RPC_URL --broadcast --verify -vvvv`
-
-# Contract Overview
-
-## `Lender.sol`
+### `Lender.sol`
 
 Lender is the main singleton contract for Beedle. It handles all borrowing, repayment, and refinancing.
 
@@ -86,6 +74,43 @@ When a lender no longer desires to be lending anymore they have two options. The
 4. `Auctioning A Loan`
 When a lender no longer wants to be in a loan, but there is no lending pool available to give the loan to, lenders are able to put the loan up for auction. This is a Dutch Auction where the variable changing over time is the interest rate and it is increasing linearly. Anyone is able to match an active pool with a live auction when the parameters of that pool match that of the auction or are more favorable to the borrower. This is called buying the loan. If the auction finishes without anyone buying the loan, the loan is liquidated. Then the lender is able to withdraw the borrowers collateral and the loan is closed. 
 
-## `Staking.sol`
+### `Staking.sol`
 
-This is a contract based on the code of `yveCRV` originally created by Andre Cronje. It tracks user balances over time and updates their share of a distribution on deposits and withdraws. 
+This is a contract based on the code of `yveCRV` originally created by Andre Cronje. It tracks user balances over time and updates their share of a distribution on deposits and withdraws.
+
+[//]: # (scope-close)
+
+[//]: # (getting-started-open)
+
+## Getting Started
+
+Before diving into the codebase and this implementation of the Blend lending protocol, it is recommended that you read the [original paper by Paradigm and Blur](https://www.paradigm.xyz/2023/05/blend#continuous-loans)
+
+# build
+`forge init`
+
+`forge install OpenZeppelin/openzeppelin-contracts`
+
+`forge install vectorized/solady`
+
+`forge build`
+
+# test
+`forge test`
+
+# deploy
+first copy the `.example.env` file and create your own `.env` file
+
+`forge script script/LenderScript.s.sol:LenderScript --rpc-url $GOERLI_RPC_URL --broadcast --verify -vvvv`
+
+[//]: # (getting-started-close)
+
+[//]: # (known-issues-open)
+
+## Known Issues
+
+<p align="center">
+No known issues reported.
+
+[//]: # (known-issues-close)
+ 
