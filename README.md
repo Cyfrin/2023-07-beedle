@@ -1,12 +1,5 @@
 # Beedle
 
-[//]: # (contest-details-open)
-
-## Contest Details
-
-Oracle free peer to peer perpetual lending
-About Beedle - [Twitter](https://twitter.com/beedlefi)
-
 - Total Prize Pool: $20,000
   - HM Awards: $18,000
   - LQAG: $2,000
@@ -17,6 +10,12 @@ About Beedle - [Twitter](https://twitter.com/beedlefi)
 - nSLOC: ~706
 - Complexity: ~381
 - Judging Ends August 14th, 2023
+
+[//]: # (contest-details-open)
+## Contest Details
+
+Oracle free peer to peer perpetual lending
+About Beedle - [Twitter](https://twitter.com/beedlefi)
 
 [//]: # (contest-details-close)
 
